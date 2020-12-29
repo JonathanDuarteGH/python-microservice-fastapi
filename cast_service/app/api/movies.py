@@ -3,11 +3,6 @@ from typing import List
 from app.api.models import MovieIn, MovieOut
 from app.api import db_manager
 
-# pylint: disable=no-name-in-module
-# pylint: disable=no-self-argument
-
-from pydantic import BaseModel
-
 
 movies = APIRouter()
 
