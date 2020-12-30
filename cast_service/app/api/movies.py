@@ -30,7 +30,7 @@ async def update_movie(id: int, payload: MovieIn):
     return None
 
 
-@movies.put('/{id}')
+@ movies.put('/{id}')
 async def update_movie(id: int, payload: MovieIn):
     movie = await db_manager.get_movie(id)
     if not movie:
@@ -44,7 +44,7 @@ async def update_movie(id: int, payload: MovieIn):
     return await db_manager.update_movie(id, updated_movie)
 
 
-@movies.delete('/{id}')
+@ movies.delete('/{id}')
 async def delete_movie(id: int):
     movie = await db_manager.get_movie(id)
     if not movie:
