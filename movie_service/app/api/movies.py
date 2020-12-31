@@ -29,7 +29,7 @@ async def get_movies():
     return await db_manager.get_all_movies()
 
 
-@movies.get('/{id}' /, response_model=MovieOut)
+@movies.get('/{id}', response_model=MovieOut)
 async def get_movie(id: int):
     movie = await db_manager.get_movie(id)
     if not movie:
@@ -58,7 +58,7 @@ async def update_movie(id: int, payload: MovieUpdate):
     return await db_manager.update_movie(id, updated_movie)
 
 
-@ movies.delete('/{id}')
+@movies.delete('/{id}')
 async def delete_movie(id: int):
     movie = await db_manager.get_movie(id)
     if not movie:

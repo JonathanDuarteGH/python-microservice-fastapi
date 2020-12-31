@@ -1,8 +1,11 @@
 from fastapi import FastAPI
-from app.api.casts import casts
+from app.api.movies import movies
 from app.api.db import metadata, database, engine
 
-app = FastAPI()
+metadata.create_all(engine)
+
+app = FastAPI(openapi_url="/api/v1/movies/openapi.json",
+              docs_url="/api/v1/movies/docs")
 
 
 @app.on_event("startup")
