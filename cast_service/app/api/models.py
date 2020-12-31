@@ -1,23 +1,15 @@
-# pylint: disable=no-name-in-module
-# pylint: disable=no-self-argument
-
 from pydantic import BaseModel
 from typing import List, Optional
 
 
-class MovieIn(BaseModel):
+class CastIn(BaseModel):
     name: str
-    plot: str
-    genres: List[str]
-    casts: List[str]
+    nationality: Optional[str] = None
 
 
-class MovieOut(MovieIn):
+class CastOut(CastIn):
     id: int
 
 
-class MovieUpdate(MovieIn):
+class CastUpdate(CastIn):
     name: Optional[str] = None
-    plot: Optional[str] = None
-    genres: Optional[List[str]] = None
-    casts: Optional[List[str]] = None

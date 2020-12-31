@@ -1,23 +1,21 @@
+import os
+
 from sqlalchemy import (Column, Integer, MetaData, String, Table,
                         create_engine, ARRAY)
 
 from databases import Database
 
-from app.api.credentials import server, username, password, your_database
+DATABASE_URI = os.getenv('DATABASE_URI')
 
-DATABASE_URL = f'{server}://{username}:{password}@localhost/{your_database}'
-
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URI)
 metadata = MetaData()
 
-movies = Table(
-    'movies',
+casts = Table(
+    'casts',
     metadata,
     Column('id', Integer, primary_key=True),
     Column('name', String(50)),
-    Column('plot', String(250)),
-    Column('genres', ARRAY(String)),
-    Column('casts', ARRAY(String))
+    Column('nationality', String(20)),
 )
 
-database = Database(DATABASE_URL)
+database = Database(DATABASE_URI)
