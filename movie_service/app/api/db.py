@@ -6,7 +6,7 @@ from databases import Database
 
 #from app.api.credentials import server, username, password, your_database
 
-DATABASE_URI = os.getenv('DATABSE_URI')
+DATABASE_URI = os.getenv("DATABASE_URI")
 
 #DATABASE_URI = f'{server}://{username}:{password}@localhost/{your_database}'
 
